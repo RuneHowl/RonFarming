@@ -1,0 +1,87 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    double acres;
+    int vegetables;
+    double portion;
+    int seed;
+    int plantation;
+    int fertilizing;
+    int labor;
+    int selling;
+    double seed2;
+    int plantation2;
+    int fertilizing2;
+    int labor2;
+    int selling2;
+    double revenue1;
+    double revenue2;
+    double totalrevenue;
+    double cost1;
+    double cost2;
+    double totalcost1;
+    double totalcost2;
+    double totalcost;
+   
+    cout << "Enter the total farm area in acres: " << endl;
+        cin >> acres;
+    cout << "How many vegetables 1 or 2: " << endl;
+        cin >> vegetables;
+    if(vegetables == 2){
+        cout << "What portion of the land, as a percentage: " << endl;
+            cin >> portion;
+}
+    cout << "Enter seed cost: " << endl;
+        cin >> seed;
+    cout << "Enter plantation cost: " << endl;
+        cin >> plantation;
+    cout << "Enter fertilizing cost: " << endl;
+        cin >> fertilizing;
+    cout << "Enter labor cost: " << endl;
+        cin >> labor;
+    cout << "Enter selling price per acre: " << endl;
+        cin >> selling;
+    if(vegetables == 2){
+    cout << "Enter seed cost for vegetable 2: " << endl;
+        cin >> seed2;
+    cout << "Enter plantation cost for vegetable 2: " << endl;
+        cin >> plantation2;
+    cout << "Enter fertilizing cost for vegetable 2: " << endl;
+        cin >> fertilizing2;
+    cout << "Enter labor cost for vegetable 2: " << endl;
+        cin >> labor2;
+    cout << "Enter selling price per acre for vegetable 2: " << endl;
+        cin >> selling2;
+}
+    if(vegetables == 2){
+        revenue1 = ((portion / 100) * acres) * selling;
+        revenue2 = (((100 - portion) / 100) * acres) * selling;
+    totalrevenue = revenue1 + revenue2;
+   }else{
+        revenue1 = acres * selling;
+    totalrevenue = revenue1;
+}
+   
+    cout << "The total revenue: " << endl;
+        cout << totalrevenue << endl;
+    if(vegetables == 2){
+        cost1 = (91.666 * (seed + plantation + fertilizing + labor + selling));
+            totalcost1 = revenue1 - cost1;
+        cost2 = (seed2 + plantation2 + fertilizing2 + labor2 + selling2);
+            totalcost2 = revenue2 - cost2;
+        totalcost = totalcost1 + totalcost2;
+   }else{
+         cost1 = (91.666 * (seed + plantation + fertilizing + labor + selling));
+            totalcost1 = (revenue1 - cost1);
+        totalcost = totalcost1;
+    }
+
+   
+    cout << "The profit/loss: " << endl;
+        cout << totalcost;
+
+   
+        return 0;
+}
